@@ -11,6 +11,7 @@ interface NumberInputProps<
   placeholder?: string
   pattern?: string
   disabled?: boolean
+  step?: string | number
   inputMode?:
     | "search"
     | "text"
@@ -32,6 +33,7 @@ export default function NumberInput<
   inputMode,
   pattern,
   disabled,
+  step,
 }: NumberInputProps<TFieldValues, TName>) {
   return (
     <Input
@@ -42,6 +44,7 @@ export default function NumberInput<
       disabled={disabled}
       className={cn("w-full", className)}
       {...field}
+      step={step}
       value={field.value ?? ""}
       onChange={(e) => {
         if (e.target.value === "") return field.onChange(undefined)
