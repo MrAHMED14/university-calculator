@@ -1,9 +1,5 @@
-import InputsForm from "@/components/global/inputs-form"
+import ManualCalculator from "@/components/global/manual-calculator"
 
 export default function Home() {
-  return (
-    <div className="w-full flex items-center justify-center">
-      <InputsForm />
-    </div>
-  )
+  return <ManualCalculator />
 }
