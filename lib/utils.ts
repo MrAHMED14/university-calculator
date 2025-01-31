@@ -37,6 +37,7 @@ export const manualCalculatorSchema = z
       "Fondamentale 2",
       "Méthodologique",
       "Découverte",
+      "Transversale",
     ]),
   })
   .refine(

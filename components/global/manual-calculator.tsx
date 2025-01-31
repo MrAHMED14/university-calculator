@@ -107,6 +107,9 @@ export default function ManualCalculator() {
                             Méthodologique
                           </SelectItem>
                           <SelectItem value="Découverte">Découverte</SelectItem>
+                          <SelectItem value="Transversale">
+                            Transversale
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
