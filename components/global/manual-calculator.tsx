@@ -24,7 +24,7 @@ import {
 import { useState } from "react"
 import { manualCalculatorSchema } from "@/lib/utils"
 import { z } from "zod"
-import { ModulesTable } from "./ModulesTable"
+import { ManualModulesTable } from "./manual-modules-table"
 
 export default function ManualCalculator() {
   const [modules, setModules] = useState<
@@ -45,6 +45,19 @@ export default function ManualCalculator() {
 
   function onSubmit(values: z.infer<typeof manualCalculatorSchema>) {
     console.log(values)
+    let moyCC = 0,
+      moyExam = 0
+    if (values.examType === "TD_TP" || values.examType === "TD") {
+      moyCC =
+        (((values?.tdScore ?? 0) + (values?.tpScore ?? 0)) / 2) *
+        (values.tdTpWeight / 100)
+    } else {
+      moyCC = (values?.tpScore ?? 0) * (values.tdTpWeight / 100)
+    }
+    moyExam = values.examScore * (values.examWeight / 100)
+    values.moduleMoy = moyCC + moyExam
+    values.moduleMoyCof = values.moduleMoy * values.coefficient
+
     setModules((prevModules) => [...prevModules, values])
     form.reset()
     setExamType("TD_TP")
@@ -315,7 +328,7 @@ export default function ManualCalculator() {
             <CardTitle>Submitted Modules</CardTitle>
           </CardHeader>
           <CardContent>
-            <ModulesTable modules={modules} />
+            <ManualModulesTable modules={modules} />
           </CardContent>
         </Card>
       )}

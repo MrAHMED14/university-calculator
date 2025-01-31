@@ -24,6 +24,8 @@ export const manualCalculatorSchema = z
     examType: z.enum(["none", "TD_TP", "TP", "TD"]),
     tdScore: z.coerce.number().min(0).max(20).optional(),
     tpScore: z.coerce.number().min(0).max(20).optional(),
+    moduleMoy: z.coerce.number().min(0).max(20).optional(),
+    moduleMoyCof: z.coerce.number().optional(),
     tdTpWeight: z.coerce
       .number({ message: "TD/TP weight is required" })
       .min(0)
