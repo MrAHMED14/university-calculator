@@ -257,6 +257,7 @@ export default function ManualCalculator() {
                 />
               )}
 
+              {/* Weight */}
               <div>
                 <FormLabel className="block mb-2">
                   <span className="text-red-600">*</span> Weight
