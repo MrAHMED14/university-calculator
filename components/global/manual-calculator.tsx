@@ -25,6 +25,9 @@ import { useState } from "react"
 import { manualCalculatorSchema } from "@/lib/utils"
 import { z } from "zod"
 import { ManualModulesTable } from "./manual-modules-table"
+import ManualYearTable from "./manual-year-table"
+import { ValuesNoteType } from "@/lib/types/global"
+import { toast } from "sonner"
 
 export default function ManualCalculator() {
   const [modules, setModules] = useState<
@@ -33,6 +36,7 @@ export default function ManualCalculator() {
   const [examType, setExamType] = useState<"none" | "TD_TP" | "TP" | "TD">(
     "TD_TP"
   )
+  const [semestre, setSemestre] = useState<ValuesNoteType[]>([])
 
   const form = useForm<z.infer<typeof manualCalculatorSchema>>({
     resolver: zodResolver(manualCalculatorSchema),
@@ -44,6 +48,11 @@ export default function ManualCalculator() {
   })
 
   function onSubmit(values: z.infer<typeof manualCalculatorSchema>) {
+    if (semestre.length == 2) {
+      toast.error("You can only save up to 2 semestres.")
+      return
+    }
+
     console.log(values)
     let moyCC = 0,
       moyExam = 0
@@ -60,6 +69,13 @@ export default function ManualCalculator() {
 
     setModules((prevModules) => [...prevModules, values])
     form.reset()
+    setExamType("TD_TP")
+  }
+
+  function resetCalculator() {
+    form.reset()
+    setModules([])
+    setSemestre([])
     setExamType("TD_TP")
   }
 
@@ -315,8 +331,12 @@ export default function ManualCalculator() {
                   />
                 </div>
               </div>
-
-              <Button type="submit">Submit</Button>
+              <div className="flex gap-4">
+                <Button type="submit">Submit</Button>
+                <Button type="reset" onClick={resetCalculator}>
+                  Reset
+                </Button>
+              </div>
             </form>
           </Form>
         </CardContent>
@@ -328,7 +348,23 @@ export default function ManualCalculator() {
             <CardTitle>Submitted Modules</CardTitle>
           </CardHeader>
           <CardContent>
-            <ManualModulesTable modules={modules} />
+            <ManualModulesTable
+              modules={modules}
+              setModules={setModules}
+              semestre={semestre}
+              setSemestre={setSemestre}
+            />
+          </CardContent>
+        </Card>
+      )}
+
+      {semestre.length > 0 && (
+        <Card className="w-full border border-gray-200 shadow-sm overflow-hidden max-w-4xl">
+          <CardHeader>
+            <CardTitle>Average of the year</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ManualYearTable semestre={semestre} />
           </CardContent>
         </Card>
       )}
