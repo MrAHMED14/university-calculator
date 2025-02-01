@@ -5,7 +5,7 @@
 Make sure you have the following installed on your machine:
 
 - [Node.js](https://nodejs.org/)
-- [pnpm](https://pnpm.io/)
+- Package manager like: [pnpm](https://pnpm.io/)
 
 ### Installation
 
