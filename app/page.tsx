@@ -1,7 +1,7 @@
 import type React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Calculator } from "lucide-react"
+import { ArrowRight, Calculator, BookOpen, Award, Zap } from "lucide-react"
 import MaxWidthWrapper from "@/components/global/max-width-wrapper"
 
 export default function Home() {
@@ -37,19 +37,19 @@ export default function Home() {
             description="Simple interface for quick GPA computations"
           />
           <FeatureCard
-            icon={<Calculator className="h-8 w-8 text-blue-500" />}
-            title="Easy Calculation"
-            description="Simple interface for quick GPA computations"
+            icon={<BookOpen className="h-8 w-8 text-blue-500" />}
+            title="Semester & Annual"
+            description="Calculate both semester and yearly GPAs"
           />
           <FeatureCard
-            icon={<Calculator className="h-8 w-8 text-blue-500" />}
-            title="Easy Calculation"
-            description="Simple interface for quick GPA computations"
+            icon={<Award className="h-8 w-8 text-blue-500" />}
+            title="GPA Scale"
+            description="Supports a variety of universities across the country."
           />
           <FeatureCard
-            icon={<Calculator className="h-8 w-8 text-blue-500" />}
-            title="Easy Calculation"
-            description="Simple interface for quick GPA computations"
+            icon={<Zap className="h-8 w-8 text-blue-500" />}
+            title="Instant Results"
+            description="Get your GPA calculated immediately"
           />
         </div>
       </div>
