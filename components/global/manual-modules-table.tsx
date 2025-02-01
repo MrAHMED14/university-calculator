@@ -135,7 +135,6 @@ export function ManualModulesTable({
       coefficientSum,
       creditSum,
       creditSumMoy,
-      //-------------//
       totalCreditSum,
       totalCoefficientSum,
       finalResult,

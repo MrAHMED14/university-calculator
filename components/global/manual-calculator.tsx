@@ -43,6 +43,8 @@ export default function ManualCalculator() {
     defaultValues: {
       moduleName: "",
       examType: "TD_TP",
+      tdTpWeight: 40,
+      examWeight: 60,
       unityType: "Fondamentale 1",
     },
   })
@@ -53,16 +55,21 @@ export default function ManualCalculator() {
       return
     }
 
-    console.log(values)
     let moyCC = 0,
       moyExam = 0
-    if (values.examType === "TD_TP" || values.examType === "TD") {
+    if (values.examType === "TD_TP") {
       moyCC =
         (((values?.tdScore ?? 0) + (values?.tpScore ?? 0)) / 2) *
         (values.tdTpWeight / 100)
-    } else {
+    } else if (values.examType === "TP") {
       moyCC = (values?.tpScore ?? 0) * (values.tdTpWeight / 100)
+    } else if (values.examType === "TD") {
+      moyCC = (values?.tdScore ?? 0) * (values.tdTpWeight / 100)
+    } else {
+      toast.error("Invalid exam type.")
+      return
     }
+
     moyExam = values.examScore * (values.examWeight / 100)
     values.moduleMoy = moyCC + moyExam
     values.moduleMoyCof = values.moduleMoy * values.coefficient
@@ -334,7 +341,7 @@ export default function ManualCalculator() {
               <div className="flex gap-4">
                 <Button type="submit">Submit</Button>
                 <Button type="reset" onClick={resetCalculator}>
-                  Reset
+                  Reset Calculator
                 </Button>
               </div>
             </form>
