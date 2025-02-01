@@ -170,7 +170,7 @@ export function ManualModulesTable({
                 <TableRow key={`${unityType}-${index}`}>
                   <TableCell>
                     {module.moduleName}{" "}
-                    {totalCreditSumMoy < 10 &&
+                    {finalResult < 10 &&
                     unityMoy[unityType] < 10 &&
                     module.moduleMoy &&
                     module.moduleMoy < 10 ? (
@@ -184,8 +184,20 @@ export function ManualModulesTable({
                   <TableCell>{module.coefficient}</TableCell>
                   <TableCell>{module.credit}</TableCell>
                   <TableCell>{module.examScore || "-"}</TableCell>
-                  <TableCell>{module.tdScore || "-"}</TableCell>
-                  <TableCell>{module.tpScore || "-"}</TableCell>
+                  <TableCell>
+                    {(module.examType === "TD_TP" ||
+                      module.examType === "TD") &&
+                    module.tdScore
+                      ? module.tdScore
+                      : "-"}
+                  </TableCell>
+                  <TableCell>
+                    {(module.examType === "TD_TP" ||
+                      module.examType === "TP") &&
+                    module.tpScore
+                      ? module.tpScore
+                      : "-"}
+                  </TableCell>
                   <TableCell>
                     {module.moduleMoy ? module.moduleMoy.toFixed(2) : 0.0}
                   </TableCell>
@@ -219,7 +231,7 @@ export function ManualModulesTable({
             <TableCell>{"-"}</TableCell>
             <TableCell>{finalResult.toFixed(2)}</TableCell>
             <TableCell>
-              {totalCreditSumMoy >= 10 ? totalCreditSum : totalCreditSumMoy}
+              {finalResult >= 10 ? totalCreditSum : totalCreditSumMoy}
             </TableCell>
           </TableRow>
         </TableBody>

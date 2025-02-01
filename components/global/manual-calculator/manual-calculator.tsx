@@ -56,6 +56,7 @@ export default function ManualCalculator() {
       toast.error("You can only save up to 2 semestres.")
       return
     }
+    console.log(values)
 
     let moyCC = 0,
       moyExam = 0
@@ -67,6 +68,8 @@ export default function ManualCalculator() {
       moyCC = (values?.tpScore ?? 0) * (values.tdTpWeight / 100)
     } else if (values.examType === "TD") {
       moyCC = (values?.tdScore ?? 0) * (values.tdTpWeight / 100)
+    } else if (values.examType === "none") {
+      moyCC = 0
     } else {
       toast.error("Invalid exam type.")
       return
