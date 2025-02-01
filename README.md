@@ -1,3 +1,7 @@
+## About This Project
+
+This project is a web-based application designed to assist college students in calculating their grades and GPAs. It features a user-friendly interface that allows students to input their course units, grades, and credits, which are then used to compute their GPA. This project aims to simplify the grade calculation process for students.
+
 ## Getting Started
 
 ### Prerequisites
