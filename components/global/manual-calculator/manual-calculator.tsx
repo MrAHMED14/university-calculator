@@ -28,6 +28,7 @@ import { ManualModulesTable } from "./manual-modules-table"
 import ManualYearTable from "./manual-year-table"
 import { ValuesNoteType } from "@/lib/types/global"
 import { toast } from "sonner"
+import ManualSavedModules from "./manual-saved-modules"
 
 export default function ManualCalculator() {
   const [modules, setModules] = useState<
@@ -37,6 +38,7 @@ export default function ManualCalculator() {
     "TD_TP"
   )
   const [semestre, setSemestre] = useState<ValuesNoteType[]>([])
+  const [open, setOpen] = useState<boolean>(false)
 
   const form = useForm<z.infer<typeof manualCalculatorSchema>>({
     resolver: zodResolver(manualCalculatorSchema),
@@ -368,10 +370,28 @@ export default function ManualCalculator() {
       {semestre.length > 0 && (
         <Card className="w-full border border-gray-200 shadow-sm overflow-hidden max-w-4xl">
           <CardHeader>
-            <CardTitle>Average of the year</CardTitle>
+            <CardTitle className="flex justify-between items-center">
+              <span>Average of the year</span>
+              <Button onClick={() => setOpen(!open)}>
+                {open ? "Hide semestres" : "Show semestres"}
+              </Button>
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <ManualYearTable semestre={semestre} />
+          </CardContent>
+        </Card>
+      )}
+
+      {open && (
+        <Card className="w-full border border-gray-200 shadow-sm overflow-hidden max-w-4xl">
+          <CardHeader>
+            <CardTitle className="flex justify-between items-center">
+              <span>Saved semestre</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ManualSavedModules semestres={semestre} />
           </CardContent>
         </Card>
       )}

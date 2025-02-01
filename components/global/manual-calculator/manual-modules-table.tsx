@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/table"
 import { manualCalculatorSchema } from "@/lib/utils"
 import { z } from "zod"
-import { Badge } from "../ui/badge"
-import { Button } from "../ui/button"
+import { Badge } from "../../ui/badge"
+import { Button } from "../../ui/button"
 import { toast } from "sonner"
 import { ValuesNoteType } from "@/lib/types/global"
 
