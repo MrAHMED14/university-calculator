@@ -47,7 +47,7 @@ export default function ManualCalculator() {
       examType: "TD_TP",
       tdTpWeight: 40,
       examWeight: 60,
-      unityType: "Fondamentale 1",
+      unityType: "Fondamentale1",
     },
   })
 
@@ -138,16 +138,16 @@ export default function ManualCalculator() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="Fondamentale 1">
+                          <SelectItem value="Fondamentale1">
                             Fondamentale 1
                           </SelectItem>
-                          <SelectItem value="Fondamentale 2">
+                          <SelectItem value="Fondamentale2">
                             Fondamentale 2
                           </SelectItem>
-                          <SelectItem value="Méthodologique">
+                          <SelectItem value="Methodologique">
                             Méthodologique
                           </SelectItem>
-                          <SelectItem value="Découverte">Découverte</SelectItem>
+                          <SelectItem value="Decouverte">Découverte</SelectItem>
                           <SelectItem value="Transversale">
                             Transversale
                           </SelectItem>

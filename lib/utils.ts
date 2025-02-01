@@ -35,10 +35,10 @@ export const manualCalculatorSchema = z
       .min(0)
       .max(100),
     unityType: z.enum([
-      "Fondamentale 1",
-      "Fondamentale 2",
-      "Méthodologique",
-      "Découverte",
+      "Fondamentale1",
+      "Fondamentale2",
+      "Methodologique",
+      "Decouverte",
       "Transversale",
     ]),
   })
