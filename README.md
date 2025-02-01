@@ -31,7 +31,7 @@ Make sure you have the following installed on your machine:
 1. Start the development server:
 
    ```bash
-   pnpm run dev
+   pnpm dev
    ```
 
 2. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the result.
@@ -41,5 +41,14 @@ Make sure you have the following installed on your machine:
 To create an optimized production build:
 
 ```bash
-pnpm run build
+pnpm build
 ```
+
+## TODO List
+
+- [ ] Create a database to store the config of calculations
+- [ ] Add a button on the manual calculator page to save the config
+- [ ] Implement a feature to calculate GPA based on config
+- [ ] Create a generic GPA calculator page
+- [ ] Create a page to display all available configs
+- [ ] Implement user authentication
