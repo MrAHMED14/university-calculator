@@ -48,7 +48,7 @@ pnpm build
 
 - [ ] Create a database to store the config of calculations
 - [ ] Add a button on the manual calculator page to save the config
-- [x] Implement a feature to calculate GPA based on config
-- [x] Create a generic GPA calculator page
-- [x] Create a page to display all available configs
+- [x] ~~Implement a feature to calculate GPA based on config~~
+- [x] ~~Create a generic GPA calculator page~~
+- [x] ~~Create a page to display all available configs~~
 - [ ] Implement user authentication
