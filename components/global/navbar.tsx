@@ -10,7 +10,7 @@ const LINKS = [
     title: "Manual calculator",
   },
   {
-    href: "#",
+    href: "/templates",
     title: "Discover",
   },
   {
