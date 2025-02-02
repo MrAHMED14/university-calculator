@@ -170,8 +170,8 @@ export function ManualModulesTable({
                 <TableRow key={`${unityType}-${index}`}>
                   <TableCell>
                     {module.moduleName}{" "}
-                    {finalResult < 10 &&
-                    unityMoy[unityType] < 10 &&
+                    {parseFloat(finalResult.toFixed(2)) < 10 &&
+                    parseFloat(unityMoy[unityType]?.toFixed(2)) < 10 &&
                     module.moduleMoy &&
                     module.moduleMoy < 10 ? (
                       <Badge variant="destructive" className="text-xs">
@@ -202,23 +202,31 @@ export function ManualModulesTable({
                     {module.moduleMoy ? module.moduleMoy.toFixed(2) : 0.0}
                   </TableCell>
                   <TableCell>
-                    {unityMoy[unityType] >= 10
-                      ? module.credit
-                      : module.moduleMoy && module.moduleMoy >= 10
-                      ? module.credit
-                      : 0}
+                    {parseFloat(finalResult.toFixed(2)) < 10 &&
+                    parseFloat(unityMoy[unityType]?.toFixed(2)) < 10 &&
+                    module.moduleMoy &&
+                    module.moduleMoy < 10
+                      ? 0
+                      : module.credit}
                   </TableCell>
                 </TableRow>
               ))}
               <TableRow className="font-bold bg-gray-100">
-                <TableCell>{unityType}</TableCell>
+                <TableCell>
+                  {unityType.replace(/(\D+)(\d+)/, "$1 $2")}
+                </TableCell>
                 <TableCell>{coefficientSum[unityType]}</TableCell>
                 <TableCell>{creditSum[unityType]}</TableCell>
                 <TableCell>{"-"}</TableCell>
                 <TableCell>{"-"}</TableCell>
                 <TableCell>{"-"}</TableCell>
                 <TableCell>{unityMoy[unityType]?.toFixed(2)}</TableCell>
-                <TableCell>{creditSumMoy[unityType]}</TableCell>
+                <TableCell>
+                  {parseFloat(finalResult.toFixed(2)) < 10 &&
+                  parseFloat(unityMoy[unityType]?.toFixed(2)) < 10
+                    ? creditSumMoy[unityType]
+                    : creditSum[unityType]}
+                </TableCell>
               </TableRow>
             </React.Fragment>
           ))}
@@ -231,7 +239,9 @@ export function ManualModulesTable({
             <TableCell>{"-"}</TableCell>
             <TableCell>{finalResult.toFixed(2)}</TableCell>
             <TableCell>
-              {finalResult >= 10 ? totalCreditSum : totalCreditSumMoy}
+              {parseFloat(finalResult.toFixed(2)) >= 10
+                ? totalCreditSum
+                : totalCreditSumMoy}
             </TableCell>
           </TableRow>
         </TableBody>

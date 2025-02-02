@@ -43,7 +43,7 @@ export default function ManualSavedModules({
                       <TableRow key={`${unityType}-${index}`}>
                         <TableCell>
                           {module.moduleName}{" "}
-                          {semestre.totalCreditSumMoy < 10 &&
+                          {semestre.finalResult < 10 &&
                           semestre.unityMoy[unityType] < 10 &&
                           module.moduleMoy &&
                           module.moduleMoy < 10 ? (
@@ -97,7 +97,7 @@ export default function ManualSavedModules({
                 <TableCell>{"-"}</TableCell>
                 <TableCell>{semestre.finalResult.toFixed(2)}</TableCell>
                 <TableCell>
-                  {semestre.totalCreditSumMoy >= 10
+                  {semestre.finalResult >= 10
                     ? semestre.totalCreditSum
                     : semestre.totalCreditSumMoy}
                 </TableCell>

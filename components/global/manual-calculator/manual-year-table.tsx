@@ -72,10 +72,14 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
           <span
             className={cn(
               "font-bold text-xl",
-              finalYearMoy >= 10 ? "text-teal-700" : "text-red-500"
+              parseFloat(finalYearMoy.toFixed(2)) >= 10
+                ? "text-teal-700"
+                : "text-red-500"
             )}
           >
-            {finalYearMoy >= 10 ? "!لقد نجحت" : "! لقد رسبت"}
+            {parseFloat(finalYearMoy.toFixed(2)) >= 10
+              ? "!لقد نجحت"
+              : "! لقد رسبت"}
           </span>
         </div>
       )}
