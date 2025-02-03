@@ -296,7 +296,6 @@ export const randomValues: ValuesNoteType[] = [
     groupedModules: {
       Fondamentale1: [
         {
-          // id: 1,
           moduleName: "Module 1",
           unityType: "Fondamentale1",
           coefficient: 2,
@@ -311,7 +310,6 @@ export const randomValues: ValuesNoteType[] = [
           moduleMoyCof: 0,
         },
         {
-          // id: 2,
           moduleName: "Module 2",
           unityType: "Fondamentale1",
           coefficient: 2,
@@ -328,7 +326,6 @@ export const randomValues: ValuesNoteType[] = [
       ],
       Fondamentale2: [
         {
-          // id: 1,
           moduleName: "Module 22",
           unityType: "Fondamentale2",
           coefficient: 2,
@@ -343,7 +340,6 @@ export const randomValues: ValuesNoteType[] = [
           moduleMoyCof: 0,
         },
         {
-          // id: 2,
           moduleName: "Module 22",
           unityType: "Fondamentale2",
           coefficient: 2,
