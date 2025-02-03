@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table"
 import React from "react"
 import { Badge } from "../../ui/badge"
+
 interface ManualSavedModulesProps {
   semestres: ValuesNoteType[]
 }
@@ -43,10 +44,11 @@ export default function ManualSavedModules({
                       <TableRow key={`${unityType}-${index}`}>
                         <TableCell>
                           {module.moduleName}{" "}
-                          {semestre.finalResult < 10 &&
-                          semestre.unityMoy[unityType] < 10 &&
+                          {parseFloat(semestre.finalResult.toFixed(2)) < 10 &&
+                          parseFloat(semestre.unityMoy[unityType]?.toFixed(2)) <
+                            10 &&
                           module.moduleMoy &&
-                          module.moduleMoy < 10 ? (
+                          parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
                             <Badge variant="destructive" className="text-xs">
                               Rattrapage
                             </Badge>
@@ -63,11 +65,12 @@ export default function ManualSavedModules({
                           {module.moduleMoy ? module.moduleMoy.toFixed(2) : 0.0}
                         </TableCell>
                         <TableCell>
-                          {semestre.unityMoy[unityType] >= 10
-                            ? module.credit
-                            : module.moduleMoy && module.moduleMoy >= 10
-                            ? module.credit
-                            : 0}
+                          {parseFloat(semestre.finalResult.toFixed(2)) < 10 &&
+                          parseFloat(semestre.unityMoy[unityType]?.toFixed(2)) <
+                            10 &&
+                          parseFloat(module.moduleMoy?.toFixed(2) ?? "0.0") < 10
+                            ? 0
+                            : module.credit}
                         </TableCell>
                       </TableRow>
                     ))}
@@ -83,7 +86,13 @@ export default function ManualSavedModules({
                       <TableCell>
                         {semestre.unityMoy[unityType]?.toFixed(2)}
                       </TableCell>
-                      <TableCell>{semestre.creditSumMoy[unityType]}</TableCell>
+                      <TableCell>
+                        {parseFloat(semestre.finalResult.toFixed(2)) < 10 &&
+                        parseFloat(semestre.unityMoy[unityType]?.toFixed(2)) <
+                          10
+                          ? semestre.creditSumMoy[unityType]
+                          : semestre.creditSum[unityType]}
+                      </TableCell>
                     </TableRow>
                   </React.Fragment>
                 )
@@ -97,7 +106,7 @@ export default function ManualSavedModules({
                 <TableCell>{"-"}</TableCell>
                 <TableCell>{semestre.finalResult.toFixed(2)}</TableCell>
                 <TableCell>
-                  {semestre.finalResult >= 10
+                  {parseFloat(semestre.finalResult.toFixed(2)) >= 10
                     ? semestre.totalCreditSum
                     : semestre.totalCreditSumMoy}
                 </TableCell>

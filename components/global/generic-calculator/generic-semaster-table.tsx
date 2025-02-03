@@ -125,7 +125,7 @@ export default function GenericSemasterTable({
                       parseFloat(semaster.unityMoy[unityType]?.toFixed(2)) <
                         10 &&
                       module.moduleMoy &&
-                      module.moduleMoy < 10 ? (
+                      parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
                         <Badge variant="destructive" className="text-xs">
                           Rattrapage
                         </Badge>
@@ -206,8 +206,7 @@ export default function GenericSemasterTable({
                       {parseFloat(semaster.finalResult.toFixed(2)) < 10 &&
                       parseFloat(semaster.unityMoy[unityType]?.toFixed(2)) <
                         10 &&
-                      module.moduleMoy &&
-                      module.moduleMoy < 10
+                      parseFloat(module.moduleMoy?.toFixed(2) ?? "0.0") < 10
                         ? 0
                         : module.credit}
                     </TableCell>

@@ -53,7 +53,11 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
               <TableCell>{item.totalCoefficientSum}</TableCell>
               <TableCell>{item.totalCreditSum}</TableCell>
               <TableCell>{item.finalResult.toFixed(2)}</TableCell>
-              <TableCell>{item.totalCreditSumMoy}</TableCell>
+              <TableCell>
+                {parseFloat(item.finalResult.toFixed(2)) < 10
+                  ? item.totalCreditSumMoy
+                  : item.totalCreditSum}
+              </TableCell>
             </TableRow>
           ))}
           <TableRow className="font-bold bg-gray-200 hover:bg-gray-300">
@@ -61,7 +65,11 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
             <TableCell>{totalCoefficientSum}</TableCell>
             <TableCell>{totalCreditSum}</TableCell>
             <TableCell>{finalYearMoy.toFixed(2)}</TableCell>
-            <TableCell>{totalCreditSumMoy}</TableCell>
+            <TableCell>
+              {parseFloat(finalYearMoy.toFixed(2)) < 10
+                ? totalCreditSumMoy
+                : totalCreditSum}
+            </TableCell>
           </TableRow>
         </TableBody>
       </Table>

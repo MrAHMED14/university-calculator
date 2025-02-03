@@ -173,7 +173,7 @@ export function ManualModulesTable({
                     {parseFloat(finalResult.toFixed(2)) < 10 &&
                     parseFloat(unityMoy[unityType]?.toFixed(2)) < 10 &&
                     module.moduleMoy &&
-                    module.moduleMoy < 10 ? (
+                    parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
                       <Badge variant="destructive" className="text-xs">
                         Rattrapage
                       </Badge>
@@ -204,8 +204,7 @@ export function ManualModulesTable({
                   <TableCell>
                     {parseFloat(finalResult.toFixed(2)) < 10 &&
                     parseFloat(unityMoy[unityType]?.toFixed(2)) < 10 &&
-                    module.moduleMoy &&
-                    module.moduleMoy < 10
+                    parseFloat(module.moduleMoy?.toFixed(2) ?? "0.0") < 10
                       ? 0
                       : module.credit}
                   </TableCell>
