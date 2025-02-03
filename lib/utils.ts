@@ -1,9 +1,68 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { z } from "zod"
+import { ValuesNoteType } from "./types/global"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function resetValue(entry: ValuesNoteType): ValuesNoteType {
+  return {
+    ...entry,
+    groupedModules: Object.fromEntries(
+      Object.entries(entry.groupedModules).map(([key, modules]) => [
+        key,
+        modules.map((module) => ({
+          ...module,
+          examScore: 0.0,
+          tdScore: 0.0,
+          tpScore: 0.0,
+          moduleMoy: 0.0,
+          moduleMoyCof: 0,
+        })),
+      ])
+    ),
+    unityMoy: Object.fromEntries(
+      Object.entries(entry.unityMoy).map(([key]) => [key, 0.0])
+    ),
+    coefficientSum: { ...entry.coefficientSum },
+    creditSum: { ...entry.creditSum },
+    creditSumMoy: Object.fromEntries(
+      Object.entries(entry.creditSumMoy).map(([key]) => [key, 0])
+    ),
+    finalResult: 0.0,
+    totalCreditSumMoy: 0,
+  }
+}
+
+export function initializeValues(data: ValuesNoteType[]): ValuesNoteType[] {
+  return data.map((entry) => ({
+    ...entry,
+    groupedModules: Object.fromEntries(
+      Object.entries(entry.groupedModules).map(([key, modules]) => [
+        key,
+        modules.map((module) => ({
+          ...module,
+          examScore: 0.0,
+          tdScore: 0.0,
+          tpScore: 0.0,
+          moduleMoy: 0.0,
+          moduleMoyCof: 0,
+        })),
+      ])
+    ),
+    unityMoy: Object.fromEntries(
+      Object.entries(entry.unityMoy).map(([key]) => [key, 0.0])
+    ),
+    coefficientSum: { ...entry.coefficientSum },
+    creditSum: { ...entry.creditSum },
+    creditSumMoy: Object.fromEntries(
+      Object.entries(entry.creditSumMoy).map(([key]) => [key, 0])
+    ),
+    finalResult: 0.0,
+    totalCreditSumMoy: 0,
+  }))
 }
 
 export const manualCalculatorSchema = z
