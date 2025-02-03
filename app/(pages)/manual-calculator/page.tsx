@@ -2,7 +2,7 @@ import ManualCalculator from "@/components/global/manual-calculator/manual-calcu
 
 export default function ManualCalculatorPage() {
   return (
-    <div className="w-full mt-10">
+    <div className="w-full my-20">
       <ManualCalculator />
     </div>
   )

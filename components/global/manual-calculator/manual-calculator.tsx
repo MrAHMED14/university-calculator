@@ -92,7 +92,7 @@ export default function ManualCalculator() {
   }
 
   return (
-    <div className="w-full flex flex-col items-center justify-center px-1 space-y-8 my-20">
+    <div className="w-full flex flex-col items-center justify-center px-1 space-y-8">
       <Card className="w-full max-w-4xl border border-gray-200 shadow-sm">
         <CardHeader>
           <CardTitle>Manual university calculator</CardTitle>

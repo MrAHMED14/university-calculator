@@ -18,7 +18,7 @@ export default async function Page({
   }
 
   return (
-    <MaxWidthWrapper className="mt-20 md:mt-40 mb-10 max-w-6xl">
+    <MaxWidthWrapper className="my-20 w-full max-w-6xl">
       <h1 className="text-3xl font-semibold">Computer science department</h1>
       <p className="text-muted-foreground">L3 ISIL specialization</p>
       <GenericCalculator data={INFO_L3_ISIL} />

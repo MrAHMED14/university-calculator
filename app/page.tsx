@@ -6,7 +6,7 @@ import MaxWidthWrapper from "@/components/global/max-width-wrapper"
 
 export default function Home() {
   return (
-    <MaxWidthWrapper className="mt-20 lg:mt-0 max-w-4xl w-full bg-white rounded-3xl overflow-hidden">
+    <MaxWidthWrapper className="mt-20 max-w-4xl w-full bg-white rounded-3xl overflow-hidden">
       <div className="p-8 md:p-12">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
           Calculate Your GPA

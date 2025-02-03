@@ -20,11 +20,14 @@ export default function RootLayout({
     <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
       <body
         style={inter.style}
-        className={cn("h-full antialiased", inter.className)}
+        className={cn(
+          "min-h-screen w-full h-full antialiased",
+          inter.className
+        )}
         suppressHydrationWarning
       >
         <Navbar />
-        <main className="min-h-screen w-full flex flex-col items-center justify-center">
+        <main className="flex flex-col items-center justify-center">
           {children}
         </main>
         <Toaster position="top-center" richColors theme="light" />
