@@ -124,8 +124,7 @@ export default function GenericSemasterTable({
                       {parseFloat(semaster.finalResult.toFixed(2)) < 10 &&
                       parseFloat(semaster.unityMoy[unityType]?.toFixed(2)) <
                         10 &&
-                      module.moduleMoy &&
-                      parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
+                      parseFloat(module.moduleMoy?.toFixed(2) ?? "0") < 10 ? (
                         <Badge variant="destructive" className="text-xs">
                           Rattrapage
                         </Badge>
@@ -135,22 +134,32 @@ export default function GenericSemasterTable({
                     </TableCell>
                     <TableCell>{module.coefficient}</TableCell>
                     <TableCell>{module.credit}</TableCell>
+
+                    {/* Inputs */}
                     <TableCell>
                       <Input
                         type="number"
+                        className="min-w-20"
                         placeholder="EXAM"
                         step={0.01}
                         min={0}
                         max={20}
                         value={module.examScore || ""}
-                        onChange={(e) =>
-                          handleInputChange(
-                            unityType,
-                            index,
-                            "examScore",
-                            e.target.value
-                          )
-                        }
+                        onChange={(e) => {
+                          const value = e.target.value
+                          if (
+                            value === "" ||
+                            (Number.parseFloat(value) >= 0 &&
+                              Number.parseFloat(value) <= 20)
+                          ) {
+                            handleInputChange(
+                              unityType,
+                              index,
+                              "examScore",
+                              value
+                            )
+                          }
+                        }}
                       />
                     </TableCell>
                     <TableCell>
@@ -159,21 +168,29 @@ export default function GenericSemasterTable({
                         <Input
                           type="number"
                           placeholder="TD"
+                          className="min-w-20"
                           step={0.01}
                           min={0}
                           max={20}
                           value={module.tdScore || ""}
-                          onChange={(e) =>
-                            handleInputChange(
-                              unityType,
-                              index,
-                              "tdScore",
-                              e.target.value
-                            )
-                          }
+                          onChange={(e) => {
+                            const value = e.target.value
+                            if (
+                              value === "" ||
+                              (Number.parseFloat(value) >= 0 &&
+                                Number.parseFloat(value) <= 20)
+                            ) {
+                              handleInputChange(
+                                unityType,
+                                index,
+                                "tdScore",
+                                value
+                              )
+                            }
+                          }}
                         />
                       ) : (
-                        <span className="w-full text-center">-</span>
+                        "-"
                       )}
                     </TableCell>
                     <TableCell>
@@ -182,23 +199,33 @@ export default function GenericSemasterTable({
                         <Input
                           type="number"
                           placeholder="TP"
+                          className="min-w-20"
                           step={0.01}
                           min={0}
                           max={20}
                           value={module.tpScore || ""}
-                          onChange={(e) =>
-                            handleInputChange(
-                              unityType,
-                              index,
-                              "tpScore",
-                              e.target.value
-                            )
-                          }
+                          onChange={(e) => {
+                            const value = e.target.value
+                            if (
+                              value === "" ||
+                              (Number.parseFloat(value) >= 0 &&
+                                Number.parseFloat(value) <= 20)
+                            ) {
+                              handleInputChange(
+                                unityType,
+                                index,
+                                "tpScore",
+                                value
+                              )
+                            }
+                          }}
                         />
                       ) : (
                         "-"
                       )}
                     </TableCell>
+                    {/* End Inputs */}
+
                     <TableCell>
                       {module.moduleMoy ? module.moduleMoy.toFixed(2) : 0.0}
                     </TableCell>
