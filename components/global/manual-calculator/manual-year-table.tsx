@@ -9,7 +9,6 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { ValuesNoteType } from "@/lib/types/global"
-import { cn } from "@/lib/utils"
 
 interface ManualYearTableProps {
   semestre: ValuesNoteType[]
@@ -74,7 +73,7 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
         </TableBody>
       </Table>
 
-      {semestre.length === 2 && (
+      {/* {semestre.length === 2 && (
         <div className="w-full flex flex-col items-center justify-center">
           <span className="font-bold text-xl">Congratulations</span>
           <span
@@ -90,7 +89,7 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
               : "! لقد رسبت"}
           </span>
         </div>
-      )}
+      )} */}
     </div>
   )
 }
