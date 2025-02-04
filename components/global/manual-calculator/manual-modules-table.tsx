@@ -172,8 +172,7 @@ export function ManualModulesTable({
                     {module.moduleName}{" "}
                     {parseFloat(finalResult.toFixed(2)) < 10 &&
                     parseFloat(unityMoy[unityType]?.toFixed(2)) < 10 &&
-                    module.moduleMoy &&
-                    parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
+                    parseFloat(module.moduleMoy?.toFixed(2) ?? "0") < 10 ? (
                       <Badge variant="destructive" className="text-xs">
                         Rattrapage
                       </Badge>

@@ -47,8 +47,8 @@ export default function ManualSavedModules({
                           {parseFloat(semestre.finalResult.toFixed(2)) < 10 &&
                           parseFloat(semestre.unityMoy[unityType]?.toFixed(2)) <
                             10 &&
-                          module.moduleMoy &&
-                          parseFloat(module.moduleMoy.toFixed(2)) < 10 ? (
+                          parseFloat(module.moduleMoy?.toFixed(2) ?? "0") <
+                            10 ? (
                             <Badge variant="destructive" className="text-xs">
                               Rattrapage
                             </Badge>
