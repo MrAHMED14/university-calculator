@@ -29,6 +29,7 @@ import ManualYearTable from "./manual-year-table"
 import { ValuesNoteType } from "@/lib/types/global"
 import { toast } from "sonner"
 import ManualSavedModules from "./manual-saved-modules"
+import { Trash2Icon } from "lucide-react"
 
 export default function ManualCalculator() {
   const [isDisabled, startTransition] = useTransition()
@@ -355,7 +356,12 @@ export default function ManualCalculator() {
               </div>
               <div className="flex gap-4">
                 <Button type="submit">Submit</Button>
-                <Button type="reset" onClick={resetCalculator}>
+                <Button
+                  type="reset"
+                  variant="destructive"
+                  onClick={resetCalculator}
+                >
+                  <Trash2Icon className="size-4 mmr-2" />
                   Reset Calculator
                 </Button>
               </div>

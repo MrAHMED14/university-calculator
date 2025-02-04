@@ -26,6 +26,7 @@ export default function GenericCalculator({
               <span>Semaster 1</span>
               <Button
                 size="icon"
+                variant="ghost"
                 onClick={() => setSemaster1(resetValue(semaster1))}
               >
                 <XIcon className="size-4" />
@@ -48,6 +49,7 @@ export default function GenericCalculator({
               <span>Semaster 2</span>
               <Button
                 size="icon"
+                variant="ghost"
                 onClick={() => setSemaster2(resetValue(semaster2))}
               >
                 <XIcon className="size-4" />
