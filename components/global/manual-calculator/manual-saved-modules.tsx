@@ -58,9 +58,19 @@ export default function ManualSavedModules({
                         </TableCell>
                         <TableCell>{module.coefficient}</TableCell>
                         <TableCell>{module.credit}</TableCell>
-                        <TableCell>{module.examScore || "-"}</TableCell>
-                        <TableCell>{module.tdScore || "-"}</TableCell>
-                        <TableCell>{module.tpScore || "-"}</TableCell>
+                        <TableCell>{module.examScore}</TableCell>
+                        <TableCell>
+                          {module.examType === "TD_TP" ||
+                          module.examType === "TD"
+                            ? module.tdScore ?? 0
+                            : "-"}
+                        </TableCell>
+                        <TableCell>
+                          {module.examType === "TD_TP" ||
+                          module.examType === "TP"
+                            ? module.tpScore ?? 0
+                            : "-"}
+                        </TableCell>
                         <TableCell>
                           {module.moduleMoy ? module.moduleMoy.toFixed(2) : 0.0}
                         </TableCell>

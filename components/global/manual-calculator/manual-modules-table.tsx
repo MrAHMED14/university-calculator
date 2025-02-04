@@ -182,19 +182,15 @@ export function ManualModulesTable({
                   </TableCell>
                   <TableCell>{module.coefficient}</TableCell>
                   <TableCell>{module.credit}</TableCell>
-                  <TableCell>{module.examScore || "-"}</TableCell>
+                  <TableCell>{module.examScore}</TableCell>
                   <TableCell>
-                    {(module.examType === "TD_TP" ||
-                      module.examType === "TD") &&
-                    module.tdScore
-                      ? module.tdScore
+                    {module.examType === "TD_TP" || module.examType === "TD"
+                      ? module.tdScore ?? 0
                       : "-"}
                   </TableCell>
                   <TableCell>
-                    {(module.examType === "TD_TP" ||
-                      module.examType === "TP") &&
-                    module.tpScore
-                      ? module.tpScore
+                    {module.examType === "TD_TP" || module.examType === "TP"
+                      ? module.tpScore ?? 0
                       : "-"}
                   </TableCell>
                   <TableCell>
