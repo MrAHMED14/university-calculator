@@ -14,7 +14,7 @@ const LINKS = [
     title: "Discover",
   },
   {
-    href: "#",
+    href: "/about",
     title: "About us",
   },
   {
