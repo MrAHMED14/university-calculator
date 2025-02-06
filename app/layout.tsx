@@ -3,7 +3,7 @@ import "./globals.css"
 import { inter } from "./styles/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/sonner"
-import Navbar from "@/components/global/navbar"
+import Navbar from "@/components/global/navbar/navbar"
 
 export const metadata: Metadata = {
   title: "Univ Calculator",
