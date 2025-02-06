@@ -13,3 +13,10 @@ export type ValuesNoteType = {
   finalResult: number
   totalCreditSumMoy: number
 }
+
+export type StaticCalculatorType = {
+  title: string
+  etablissement: string
+  slug: string
+  data: ValuesNoteType[]
+}
