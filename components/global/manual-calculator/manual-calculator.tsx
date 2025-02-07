@@ -58,7 +58,7 @@ export default function ManualCalculator() {
       toast.error("You can only save up to 2 semestres.")
       return
     }
-    console.log(values)
+    // console.log(values)
 
     let moyCC = 0,
       moyExam = 0

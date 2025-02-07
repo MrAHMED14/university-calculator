@@ -142,7 +142,7 @@ export function ManualModulesTable({
         totalCreditSumMoy >= 10 ? totalCreditSum : totalCreditSumMoy,
     }
 
-    console.log(values)
+    // console.log(values)
 
     setSemestre((prevSemestres: ValuesNoteType[]) => [...prevSemestres, values])
     setModules([])
