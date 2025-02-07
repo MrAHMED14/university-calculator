@@ -6,7 +6,14 @@ import { Toaster } from "@/components/ui/sonner"
 import Navbar from "@/components/global/navbar/navbar"
 
 export const metadata: Metadata = {
-  title: "Univ Calculator",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
+  title: {
+    default: "Univ Calculator",
+    template: "%s - Univ Calculator",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
   description:
     "A simple calculator for university students to calculate their annual and semester GPAs.",
 }
