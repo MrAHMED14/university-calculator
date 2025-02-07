@@ -11,7 +11,7 @@ export default function TemplatePage() {
           {staticCalculator.map((item, index) => (
             <Link
               key={index}
-              href={`/templates/${item.slug}`}
+              href={`/templates/static/${item.slug}`}
               className="bg-gray-200 px-7 py-4 rounded-md font-semibold text-sm"
             >
               {item.title}
