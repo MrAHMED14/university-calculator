@@ -21,8 +21,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useState, useTransition } from "react"
-import { initializeValues, manualCalculatorSchema } from "@/lib/utils"
+import { useState } from "react"
+import { manualCalculatorSchema } from "@/lib/utils"
 import { z } from "zod"
 import { ManualModulesTable } from "./manual-modules-table"
 import ManualYearTable from "./manual-year-table"
@@ -30,10 +30,9 @@ import { ValuesNoteType } from "@/lib/types/global"
 import { toast } from "sonner"
 import ManualSavedModules from "./manual-saved-modules"
 import { Trash2Icon } from "lucide-react"
+import SaveTemplateForm from "./save-template-form"
 
 export default function ManualCalculator() {
-  const [isDisabled, startTransition] = useTransition()
-
   const [modules, setModules] = useState<
     z.infer<typeof manualCalculatorSchema>[]
   >([])
@@ -93,13 +92,6 @@ export default function ManualCalculator() {
     setSemestre([])
     setOpen(false)
     setExamType("TD_TP")
-  }
-
-  const handleSavaTemplate = () => {
-    startTransition(async () => {
-      const config: ValuesNoteType[] = initializeValues(semestre)
-      console.log(config)
-    })
   }
 
   return (
@@ -415,23 +407,7 @@ export default function ManualCalculator() {
         </Card>
       )}
 
-      {semestre.length === 2 && (
-        <div className="">
-          {/* TODO ADD FORM HERE HAS:
-           * Name of univ
-           * Desc (optional)
-           * Name of specialty
-           * Level
-           */}
-          <Button
-            disabled={isDisabled}
-            onClick={handleSavaTemplate}
-            className="uppercase bg-gradient-to-r from-blue-500 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-3 px-8 rounded-full ease-in-out transition-colors shadow-md"
-          >
-            {isDisabled ? "loading..." : "SAVE AS TEMPLATE"}
-          </Button>
-        </div>
-      )}
+      {semestre.length === 2 && <SaveTemplateForm semestres={semestre} />}
     </div>
   )
 }
