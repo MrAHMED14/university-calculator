@@ -1,6 +1,11 @@
 import Link from "next/link"
 import { Home } from "lucide-react"
 import MaxWidthWrapper from "@/components/global/max-width-wrapper"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "404 Not Found",
+}
 
 export default function NotFound() {
   return (

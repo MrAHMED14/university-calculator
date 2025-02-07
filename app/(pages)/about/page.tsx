@@ -3,6 +3,11 @@ import { Calculator, Sliders, Save, Search } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
 import MaxWidthWrapper from "@/components/global/max-width-wrapper"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Us",
+}
 
 export default function AboutPage() {
   return (

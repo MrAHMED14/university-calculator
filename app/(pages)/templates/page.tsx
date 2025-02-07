@@ -1,6 +1,11 @@
 import MaxWidthWrapper from "@/components/global/max-width-wrapper"
 import { staticCalculator } from "@/lib/static-config"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Template",
+}
 
 export default function TemplatePage() {
   return (

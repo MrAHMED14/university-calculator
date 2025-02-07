@@ -1,4 +1,9 @@
 import ManualCalculator from "@/components/global/manual-calculator/manual-calculator"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Manual Calculator",
+}
 
 export default function ManualCalculatorPage() {
   return (

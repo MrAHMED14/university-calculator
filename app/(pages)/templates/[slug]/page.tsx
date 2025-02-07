@@ -4,6 +4,11 @@ import { getConfigById } from "@/lib/actions/config"
 import { ValuesNoteType } from "@/lib/types/global"
 import { initializeValues } from "@/lib/utils"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Dynamic Template",
+}
 
 export default async function Page({
   params,
