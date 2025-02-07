@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { manualCalculatorSchema } from "../utils"
+import { manualCalculatorSchema, saveTemplateSchema } from "../utils"
 
 export type ValuesNoteType = {
   title: string
@@ -18,5 +18,9 @@ export type StaticCalculatorType = {
   title: string
   etablissement: string
   slug: string
+  data: ValuesNoteType[]
+}
+
+export type DynamicCalculatorType = z.infer<typeof saveTemplateSchema> & {
   data: ValuesNoteType[]
 }

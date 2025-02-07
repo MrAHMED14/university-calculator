@@ -7,7 +7,7 @@ import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import type { ValuesNoteType } from "@/lib/types/global"
-import { initializeValues } from "@/lib/utils"
+import { initializeValues, saveTemplateSchema } from "@/lib/utils"
 import {
   Card,
   CardContent,
@@ -24,19 +24,14 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Check, Copy } from "lucide-react"
+import { createConfig } from "@/lib/actions/config"
+import { toast } from "sonner"
 
 interface SaveTemplateFormProps {
   semestres: ValuesNoteType[]
 }
 
-const formSchema = z.object({
-  univName: z.string().min(1, "University name is required"),
-  collegeName: z.string().min(1, "College name is required"),
-  specialization: z.string().min(1, "Specialization is required"),
-  level: z.string().min(1, "Level is required"),
-})
-
-type FormValues = z.infer<typeof formSchema>
+type FormValues = z.infer<typeof saveTemplateSchema>
 
 export default function SaveTemplateForm({ semestres }: SaveTemplateFormProps) {
   const [isDisabled, startTransition] = useTransition()
@@ -45,8 +40,9 @@ export default function SaveTemplateForm({ semestres }: SaveTemplateFormProps) {
   const [copied, setCopied] = useState(false)
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(saveTemplateSchema),
     defaultValues: {
+      title: "",
       univName: "",
       collegeName: "",
       specialization: "",
@@ -55,15 +51,26 @@ export default function SaveTemplateForm({ semestres }: SaveTemplateFormProps) {
   })
 
   const onSubmit = (data: FormValues) => {
+    if (submitSuccess) {
+      toast.error("You have already saved this template.")
+      return
+    }
+
     startTransition(async () => {
       const config: ValuesNoteType[] = initializeValues(semestres)
       console.log("Form Data:", data)
       console.log("Config:", config)
 
-      const text = `https://university-calculator.vercel.app/templates/679feefc-6818-8013-afd8-053192ce0b32`
+      const generatedConfig = await createConfig({ ...data, data: config })
+      if (!generatedConfig) {
+        throw new Error("Failed to generate configuration")
+      }
+
+      console.log(generatedConfig)
+
+      const text = `${process.env.NEXT_PUBLIC_BASE_URL}/templates/${generatedConfig.id}`
       setGeneratedText(text)
       setSubmitSuccess(true)
-
       setCopied(false)
     })
   }
@@ -90,6 +97,21 @@ export default function SaveTemplateForm({ semestres }: SaveTemplateFormProps) {
         <CardContent className="space-y-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      <span className="text-red-600">*</span> Title
+                    </FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter title here" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               <FormField
                 control={form.control}
                 name="univName"
@@ -126,10 +148,10 @@ export default function SaveTemplateForm({ semestres }: SaveTemplateFormProps) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      <span className="text-red-600">*</span> Specialization
+                      <span className="text-red-600">*</span> Speciality
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter specialization" {...field} />
+                      <Input placeholder="Enter Speciality" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

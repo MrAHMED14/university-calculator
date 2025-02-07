@@ -65,6 +65,14 @@ export function initializeValues(data: ValuesNoteType[]): ValuesNoteType[] {
   }))
 }
 
+export const saveTemplateSchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  univName: z.string().min(1, "University name is required"),
+  collegeName: z.string().min(1, "College name is required"),
+  specialization: z.string().min(1, "Specialization is required"),
+  level: z.string().min(1, "Level is required"),
+})
+
 export const manualCalculatorSchema = z
   .object({
     moduleName: z.string().nonempty({ message: "Module name is required" }),
