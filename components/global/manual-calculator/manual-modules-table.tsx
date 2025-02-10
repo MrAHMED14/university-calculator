@@ -138,8 +138,7 @@ export function ManualModulesTable({
       totalCreditSum,
       totalCoefficientSum,
       finalResult,
-      totalCreditSumMoy:
-        totalCreditSumMoy >= 10 ? totalCreditSum : totalCreditSumMoy,
+      totalCreditSumMoy,
     }
 
     // console.log(values)

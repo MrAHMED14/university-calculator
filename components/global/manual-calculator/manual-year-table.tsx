@@ -24,7 +24,11 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
     0
   )
   const totalCreditSumMoy = semestre.reduce(
-    (sum, item) => sum + item.totalCreditSumMoy,
+    (sum, item) =>
+      sum +
+      (parseFloat(item.finalResult.toFixed(2)) < 10
+        ? item.totalCreditSumMoy
+        : item.totalCreditSum),
     0
   )
 
@@ -53,7 +57,8 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
               <TableCell>{item.totalCreditSum}</TableCell>
               <TableCell>{item.finalResult.toFixed(2)}</TableCell>
               <TableCell>
-                {parseFloat(item.finalResult.toFixed(2)) < 10
+                {parseFloat(finalYearMoy.toFixed(2)) < 10 &&
+                parseFloat(item.finalResult.toFixed(2)) < 10
                   ? item.totalCreditSumMoy
                   : item.totalCreditSum}
               </TableCell>
@@ -72,24 +77,6 @@ export default function ManualYearTable({ semestre }: ManualYearTableProps) {
           </TableRow>
         </TableBody>
       </Table>
-
-      {/* {semestre.length === 2 && (
-        <div className="w-full flex flex-col items-center justify-center">
-          <span className="font-bold text-xl">Congratulations</span>
-          <span
-            className={cn(
-              "font-bold text-xl",
-              parseFloat(finalYearMoy.toFixed(2)) >= 10
-                ? "text-teal-700"
-                : "text-red-500"
-            )}
-          >
-            {parseFloat(finalYearMoy.toFixed(2)) >= 10
-              ? "!لقد نجحت"
-              : "! لقد رسبت"}
-          </span>
-        </div>
-      )} */}
     </div>
   )
 }
