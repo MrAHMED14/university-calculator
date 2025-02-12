@@ -1,9 +1,10 @@
 import GenericCalculator from "@/components/global/generic-calculator/generic-calculator"
 import MaxWidthWrapper from "@/components/global/max-width-wrapper"
-import { findStaticCalculator } from "@/lib/static-config"
 import { initializeValues } from "@/lib/utils"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
+import { findStaticCalculator } from "@/lib/static-configs/lib"
+// import { findStaticCalculator } from "@/lib/static-config"
 
 export const metadata: Metadata = {
   title: "Static Template",
