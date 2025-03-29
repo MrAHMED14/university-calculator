@@ -47,7 +47,7 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
       Fondamentale1: [
         {
           moduleName: "Système d'information distribué",
-          coefficient: 4,
+          coefficient: 3,
           credit: 6,
           examWeight: 60,
           tdTpWeight: 40,
@@ -70,7 +70,7 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
       Fondamentale2: [
         {
           moduleName: "Génie Logiciel",
-          coefficient: 4,
+          coefficient: 3,
           credit: 6,
           examWeight: 60,
           tdTpWeight: 40,
@@ -192,8 +192,8 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
           moduleName: "Business Intelligence",
           coefficient: 1,
           credit: 2,
-          examWeight: 0,
-          tdTpWeight: 100,
+          examWeight: 100,
+          tdTpWeight: 0,
           examType: "TD",
           unityType: "Methodologique",
           ...staticValues,
