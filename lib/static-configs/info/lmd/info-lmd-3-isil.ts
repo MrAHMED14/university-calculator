@@ -9,7 +9,7 @@ const staticValues = {
 }
 
 const INFO_L3_ISIL_STATIC = {
-  totalCoefficientSum: 16,
+  totalCoefficientSum: 17,
   totalCreditSum: 30,
   coefficientSum: {
     Fondamentale1: 6,
