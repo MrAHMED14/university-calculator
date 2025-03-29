@@ -9,11 +9,11 @@ const staticValues = {
 }
 
 const INFO_L3_ISIL_STATIC = {
-  totalCoefficientSum: 17,
+  totalCoefficientSum: 15,
   totalCreditSum: 30,
   coefficientSum: {
-    Fondamentale1: 6,
-    Fondamentale2: 6,
+    Fondamentale1: 5,
+    Fondamentale2: 5,
     Methodologique: 4,
     Transversale: 1,
   },
@@ -47,7 +47,7 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
       Fondamentale1: [
         {
           moduleName: "Système d'information distribué",
-          coefficient: 4,
+          coefficient: 3,
           credit: 6,
           examWeight: 60,
           tdTpWeight: 40,
@@ -70,7 +70,7 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
       Fondamentale2: [
         {
           moduleName: "Génie Logiciel",
-          coefficient: 4,
+          coefficient: 3,
           credit: 6,
           examWeight: 60,
           tdTpWeight: 40,
