@@ -8,7 +8,7 @@ const staticValues = {
   moduleMoyCof: 0,
 }
 
-const INFO_L3_ISIL_STATIC = {
+const INFO_L3_ISIL_S1_STATIC = {
   totalCoefficientSum: 15,
   totalCreditSum: 30,
   coefficientSum: {
@@ -40,9 +40,41 @@ const INFO_L3_ISIL_STATIC = {
   totalCreditSumMoy: 0,
 }
 
+const INFO_L3_ISIL_S2_STATIC = {
+  totalCoefficientSum: 17,
+  totalCreditSum: 30,
+  coefficientSum: {
+    Fondamentale1: 6,
+    Fondamentale2: 6,
+    Methodologique: 4,
+    Transversale: 1,
+  },
+  creditSum: {
+    Fondamentale1: 10,
+    Fondamentale2: 10,
+    Methodologique: 8,
+    Transversale: 2,
+  },
+  // ------------ //
+  unityMoy: {
+    Fondamentale1: 0.0,
+    Fondamentale2: 0.0,
+    Methodologique: 0.0,
+    Transversale: 0.0,
+  },
+  creditSumMoy: {
+    Fondamentale1: 0,
+    Fondamentale2: 0,
+    Methodologique: 0,
+    Transversale: 0,
+  },
+  finalResult: 0.0,
+  totalCreditSumMoy: 0,
+}
+
 const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
   {
-    title: "semaster 1",
+    title: "semester 1",
     groupedModules: {
       Fondamentale1: [
         {
@@ -126,10 +158,10 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
         },
       ],
     },
-    ...INFO_L3_ISIL_STATIC,
+    ...INFO_L3_ISIL_S1_STATIC,
   },
   {
-    title: "semaster 2",
+    title: "semester 2",
     groupedModules: {
       Fondamentale1: [
         {
@@ -213,7 +245,7 @@ const INFO_L3_ISIL_DATA: ValuesNoteType[] = [
         },
       ],
     },
-    ...INFO_L3_ISIL_STATIC,
+    ...INFO_L3_ISIL_S2_STATIC,
   },
 ]
 
